@@ -1,7 +1,7 @@
 import React, {ForwardedRef, forwardRef, HTMLAttributes, useEffect, useRef, useState} from 'react';
 import './CrossFade.scss';
 
-export interface CrossFadeProps extends HTMLAttributes<HTMLDivElement> {
+export interface CrossFaderProps extends HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     destroyOnFadeOutComplete?: boolean;
     onFadeOutComplete?: () => void;
@@ -10,8 +10,8 @@ export interface CrossFadeProps extends HTMLAttributes<HTMLDivElement> {
     delay?: number;
 }
 
-export const CrossFade = forwardRef(
-    function CrossFade({
+export const CrossFader = forwardRef(
+    function CrossFader({
                            children,
                            className,
                            onFadeOutComplete,
@@ -20,7 +20,7 @@ export const CrossFade = forwardRef(
                            distinctKey,
                            delay = 0,
                            ...props
-                       }: CrossFadeProps, ref: ForwardedRef<HTMLDivElement>) {
+                       }: CrossFaderProps, ref: ForwardedRef<HTMLDivElement>) {
         const prevRef = useRef<HTMLDivElement>(null);
         const curRef = useRef<HTMLDivElement>(null);
 
@@ -82,16 +82,16 @@ export const CrossFade = forwardRef(
 
 
         return (
-            <div {...props} ref={ref} className={`react-cross-fade-container ${className ?? ''}`}>
+            <div {...props} ref={ref} className={`react-cross-fader-container ${className ?? ''}`}>
                 <div ref={fadeIndex === 0 ? curRef : prevRef}
-                     className={`react-cross-fade-element ${fadeIndex === 0 ? 'fade-in' : 'fade-out'}`}>
+                     className={`react-cross-fader-element ${fadeIndex === 0 ? 'fade-in' : 'fade-out'}`}>
                     {
                         !(fadeOutDone && fadeIndex === 1 && destroyOnFadeOutComplete)
                         && (fadeIndex === 0 ? curActiveElement : prevActiveElement)
                     }
                 </div>
                 <div ref={fadeIndex === 1 ? curRef : prevRef}
-                     className={`react-cross-fade-element ${fadeIndex === 1 ? 'fade-in' : 'fade-out'}`}>
+                     className={`react-cross-fader-element ${fadeIndex === 1 ? 'fade-in' : 'fade-out'}`}>
                     {
                         !(fadeOutDone && fadeIndex === 0 && destroyOnFadeOutComplete)
                         && (fadeIndex === 1 ? curActiveElement : prevActiveElement)

@@ -1,28 +1,28 @@
-# react-cross-fade
+# react-cross-fader
 
-``npm install react-cross-fade --save``
+``npm install react-cross-fader --save``
 
 A minimalistic library to allow animated transitions between any react elements.
 Transitions are handled using CSS Keyframes animations.
 
-Basic usage is very simple. Just wrap any element with `CrossFade` comonent:
+Basic usage is very simple. Just wrap any element with `CrossFader` comonent:
 
 ```tsx
-<CrossFade>
+<CrossFader>
     <div>Some content</div>
-</CrossFade>
+</CrossFader>
 ```
 
-Then, if you replace the children of `CrossFade` with something else, the existing content will fade out and the new content will fade in.
+Then, if you replace the children of `CrossFader` with something else, the existing content will fade out and the new content will fade in.
 
 ### Example:
 
 ```tsx
 import {useState} from 'react';
-import {CrossFade} from 'react-cross-fade';
+import {CrossFader} from 'react-cross-fader';
 
 const labels: string[] = [
-    'This is a react-cross-fade library',
+    'This is a react-cross-fader library',
     'A tiny library for fade-in/fade-out transitioning',
     'Flexible',
     'Easy to use',
@@ -39,11 +39,11 @@ function App() {
     const curLabel = labels[labelIndex];
 
     return (
-        <CrossFade distinctKey={curLabel}>
+        <CrossFader distinctKey={curLabel}>
             <div onClick={() => nextLabel()}>
                 {curLabel}
             </div>
-        </CrossFade>
+        </CrossFader>
     );
 }
 ```
@@ -88,9 +88,9 @@ For that you just need to define your transitions using `@keyframes` and overrid
 
 ```jsx
 <div className='my-wrapper'>
-    <CrossFade>
+    <CrossFader>
         ...some children
-    </CrossFade>
+    </CrossFader>
 </div>
 ```
 ```css

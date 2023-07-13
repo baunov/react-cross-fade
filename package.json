@@ -1,5 +1,5 @@
 {
-  "name": "react-cross-fade",
+  "name": "react-cross-fader",
   "private": false,
   "version": "0.0.0",
   "type": "module",
@@ -42,7 +42,10 @@
     "transition",
     "cross-fade",
     "animation",
-    "react"
+    "react",
+    "keyframes",
+    "leave",
+    "enter"
   ],
   "author": "Daniil Baunov",
   "license": "ISC"

@@ -5,7 +5,7 @@
   --fade-out-delay: 0s;
 }
 
-.react-cross-fade-container {
+.react-cross-fader-container {
   @keyframes defaultFadeIn {
     0% {
       opacity: 0;
@@ -21,7 +21,7 @@
     }
   }
 
-  .react-cross-fade-element {
+  .react-cross-fader-element {
     width: 100%;
     height: 100%;
     position: absolute;
